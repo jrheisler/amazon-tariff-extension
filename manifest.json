@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Amazon Tariff Estimator",
+    "version": "1.0",
+    "description": "Displays estimated tariffs for Amazon products based on category and country of origin.",
+    "permissions": ["scripting", "activeTab"],
+    "host_permissions": ["https://www.amazon.com/*"],
+    "content_scripts": [
+      {
+        "matches": ["https://www.amazon.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  

@@ -51,10 +51,18 @@ async function injectTariff() {
 
   const tariffElem = document.createElement("div");
   tariffElem.id = "tariff-estimate";
-  tariffElem.innerText = insertText;
   tariffElem.style.marginTop = "10px";
   tariffElem.style.color = "red";
   tariffElem.style.fontSize = "16px";
+  const totalPrice = price + tariff;
+  tariffElem.innerHTML = `
+ 📦 Estimated Tariff (${defaultOrigin}, ${category}): $${tariff.toFixed(2)} (${(rate * 100).toFixed(0)}%)<br>
+  💵 Estimated Price After Tariff: $${price.toFixed(2)} + $${tariff.toFixed(2)} = <strong>$${totalPrice.toFixed(2)}</strong><br>
+    <a href="https://www.paypal.com/ncp/payment/D4BGYM6GU2B88" target="_blank" style="color: blue; text-decoration: underline; font-size: 14px;">
+      💖 Help us stop this Tariff Madness
+    </a>
+  `;
+
   priceElem.parentElement.appendChild(tariffElem);
 }
 
